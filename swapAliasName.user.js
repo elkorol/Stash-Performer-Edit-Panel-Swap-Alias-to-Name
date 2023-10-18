@@ -86,7 +86,7 @@
           if (addedNode.matches && addedNode.matches(".input-group")) {
             setTimeout(function () {
               buildButtons(nameInputElem, addedNode);
-            }, 1000);
+            }, 2000);
           }
         });
       });
