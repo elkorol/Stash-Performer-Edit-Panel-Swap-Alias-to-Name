@@ -64,19 +64,22 @@
   }
 
   function buildButtons(nameInputElem, aliasGroupInputElem) {
-    const svgContainerDiv = document.createElement("div");
-    svgContainerDiv.classList.add("input-group-append");
-    const btn = document.createElement("btn");
-    btn.classList.add("btn", "btn-success");
-    btn.setAttribute("type", "button");
-    const svgElement = document.createElement("div");
-    svgElement.innerHTML = svgBTN;
-    btn.appendChild(svgElement);
-    svgContainerDiv.appendChild(btn);
-    aliasGroupInputElem.appendChild(svgContainerDiv);
-    btn.addEventListener("click", function (event) {
-      swapText(nameInputElem, aliasGroupInputElem);
-    });
+    const getClass = aliasGroupInputElem.getElementsByClassName("aliasSwap");
+    if (getClass.length === 0) {
+      const svgContainerDiv = document.createElement("div");
+      svgContainerDiv.classList.add("input-group-append", "aliasSwap");
+      const btn = document.createElement("btn");
+      btn.classList.add("btn", "btn-success");
+      btn.setAttribute("type", "button");
+      const svgElement = document.createElement("div");
+      svgElement.innerHTML = svgBTN;
+      btn.appendChild(svgElement);
+      svgContainerDiv.appendChild(btn);
+      aliasGroupInputElem.appendChild(svgContainerDiv);
+      btn.addEventListener("click", function (event) {
+        swapText(nameInputElem, aliasGroupInputElem);
+      });
+    }
   }
 
   function mutate(nameInputElem) {
@@ -86,7 +89,7 @@
           if (addedNode.matches && addedNode.matches(".input-group")) {
             setTimeout(function () {
               buildButtons(nameInputElem, addedNode);
-            }, 2000);
+            }, 500);
           }
         });
       });
@@ -132,7 +135,9 @@
           });
         }
       }
-      mutate(nameInputElem);
+      setTimeout(function () {
+        mutate(nameInputElem);
+      }, 2000);
     });
   });
 })();
