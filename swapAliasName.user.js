@@ -85,9 +85,8 @@
         Array.from(mutation.addedNodes).forEach((addedNode) => {
           if (addedNode.matches && addedNode.matches(".input-group")) {
             setTimeout(function () {
-              alert("Mutation");
               buildButtons(nameInputElem, addedNode);
-            }, 2000);
+            }, 1000);
           }
         });
       });
