@@ -11,3 +11,5 @@ If you have a perfered name for performer but may have content which autotag wil
 Saves having to copy and paste swap the names and alises manually.
 
 Just be sure to use alias names with Autotag which are quite unique and will not pick up junk content for your performer.
+
+## Will eventually add to my forked repo of the Userscripts Bundle
